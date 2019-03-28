@@ -11,21 +11,29 @@ $email = $_POST['formMail'];
 $name = $_POST['formName'];
 $mess = $_POST['formMessage'];
 
+// $mail->isSMTP();                                      // Set mailer to use SMTP
+// $mail->Host = 'p3plcpnl0361.prod.phx3.secureserver.net';  // Specify main and backup SMTP servers
+// $mail->SMTPAuth = true;                               // Enable SMTP authentication
+// $mail->Username = 'mutasim@droitlab.com';                 // SMTP username
+// $mail->Password = 'Muta45**sim?';                           // SMTP password
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'p3plcpnl0361.prod.phx3.secureserver.net';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'mutasim@droitlab.com';                 // SMTP username
-$mail->Password = 'Muta45**sim?';                           // SMTP password
+// $mail->Username = 'randyandkari@gmail.com';                 // SMTP username
+// $mail->Password = 'Muta45**sim?';                           // SMTP password
+
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;
 
 //$mail->setFrom('mutasim@droitlab.com', 'Droitlab');
 $mail->setFrom($email, $name);
-$mail->addAddress('envato@droitlab.com', 'DroitLab');     // Add a recipient
+// $mail->addAddress('envato@droitlab.com', 'DroitLab');     // Add a recipient
+$mail->addAddress('randyandkari@gmail.com', 'Randy Schwartz');     // Add a recipient
+
 $mail->addReplyTo($email, $name);
 $mail->isHTML(true);
 
-$mail->Subject = 'Contact From Smith';
+$mail->Subject = 'Contact From:';
 $mail->Body    = '<strong>Name : </strong>' . $name . '<br/><br/>';
 $mail->Body  .= $mess . '<br/>';
 
